@@ -9,6 +9,7 @@ class FactsController < ApplicationController
 
     def create
       @fact = Fact.new(fact_params)
+      @fact.user = current_user
       @fact.save
 
       redirect_to @fact

@@ -4,6 +4,12 @@
   <title>FactrApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,20 +18,22 @@
       <!-- an image would go here -->
     </div>
 
-    <ul>
+    <nav>
+       <ul class="right hide-on-med-and-down">
       <li id="category">Factr</li>
       <li id="list-item"><%= link_to "Home", '/' %></li>
 
 
-        <% if current_user %>
-          <li><%= link_to "Logout", '/logout' %></li>
-          <li><%= link_to "Add a fact!", '/facts/new' %></li>
+        <% if !current_user %>
+        <li><%= link_to 'Login', '/login' %></li>
+        <li><%= link_to 'Register', '/signup' %></li>
       <% else %>
-          <li><%= link_to 'Login', '/login' %></li>
-          <li><%= link_to 'Register', '/signup' %></li>
+        <li><%= link_to "Logout", '/logout' %></li>
+        <li><%= link_to "Add a fact!", '/facts/new' %></li>
       <% end %>
 
     </ul>
+  </nav>
 <%= yield %>
 
 </body>

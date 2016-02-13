@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :facts
     root "facts#index"
 
-  resources :users, except: :index
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
 
-  get "/log-in" => "sessions#new"
-  post "/log-in" => "sessions#create"
-  get "/log-out" => "sessions#destroy", as: :log_out
-
+    get '/signup' => 'users#new'
+    post '/users' => 'users#create'
+    
 end

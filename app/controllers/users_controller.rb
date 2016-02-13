@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
+  before_filter :authorize
+  def new
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Welcome to the site!"
-      redirect_to "/"
+      session[:user_id] = @user.id
+      redirect_to '/'
     else
-      flash[:alert] = "There was a problem creating your account. Please try again."
-      redirect_to :back
+      redirect_to '/users/new'
     end
   end
 
-  private
+private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password_hash)
+    params.require(:user).permit(:username, :email, :password)
   end
 end

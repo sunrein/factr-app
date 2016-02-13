@@ -7,7 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="sidebar">
+    <div id="logo">
+      <!-- an image would go here -->
+    </div>
 
+    <ul>
+      <li id="category">Factr</li>
+      <li id="list-item"><%= link_to "Home", '/' %></li>
+
+
+        <% if current_user %>
+          <li><%= link_to "Logout", '/logout' %></li>
+          <li><%= link_to "Add a fact!", '/facts/new' %></li>
+      <% else %>
+          <li><%= link_to 'Login', '/login' %></li>
+          <li><%= link_to 'Register', '/signup' %></li>
+      <% end %>
+
+    </ul>
 <%= yield %>
 
 </body>

@@ -3,5 +3,5 @@
 </h1>
 
 <p class="date">
-  Submitted <%= time_ago_in_words(@fact.created_at) %>  ago
+  Submitted <%= time_ago_in_words(@fact.created_at) %>  ago by <%=@fact.user.username %>
 </p>

@@ -1,0 +1,6 @@
+<% @facts.each do |fact| %>
+  <div class="fact_wrapper">
+    <h2 class="fact-body"> <%= fact.body %>
+      <p class="date"> <%= fact.created_at.strftime("%B, %d, %Y") %> </p>
+    </div>
+<% end %>

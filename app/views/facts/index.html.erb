@@ -5,7 +5,7 @@
       <p class="date">Posted on <%= fact.created_at.strftime("%B, %d, %Y") %> by <%=fact.user.username%> </p>
 
       <% if current_user && current_user.id == fact.user_id %>
-      <h6 class="waves-effect waves-blue btn-flat"><a href='/login'>Edit</a></h6>
+      <h6 class="waves-effect waves-blue btn-flat"><a href='/facts/<%=fact.id%>/edit'>Edit</a></h6>
       <h6 class="waves-effect waves-blue btn-flat"><a href='/login'>Delete</a></h6>
       <% end %>
     </div>

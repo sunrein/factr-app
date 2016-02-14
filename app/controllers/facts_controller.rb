@@ -5,6 +5,7 @@ class FactsController < ApplicationController
     end
 
     def new
+      @fact = Fact.new
     end
 
     def create
@@ -17,6 +18,21 @@ class FactsController < ApplicationController
 
     def show
       @fact = Fact.find(params[:id])
+    end
+
+    def edit
+      @fact = Fact.find(params[:id])
+    end
+
+    def update
+      @fact = Fact.find(params[:id])
+
+      if @fact.update(fact_params)
+        redirect_to @fact
+
+      else
+        render 'edit'
+      end
     end
 
     private

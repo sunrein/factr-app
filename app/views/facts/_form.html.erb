@@ -1,0 +1,14 @@
+<div class="row">
+<%= form_for @fact, :html => { :class => "cols12" } do |f| %>
+
+  <div class="row">
+    <div class="input-field col s12">
+    <%= f.label :drop_some_knowledge, class: "validate" %><br>
+    <%= f.text_area :body, id: "textarea1", class: "materialize-textarea"%>
+    </div>
+  </div>
+
+  <p>
+    <p class="waves-effect waves-blue btn-flat"><%= f.submit "Share" %>
+  </p>
+<% end %>

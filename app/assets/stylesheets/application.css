@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= normalize
+ *= facts
  *= navigation
  *= require_tree .
  *= require_self

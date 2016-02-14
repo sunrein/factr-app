@@ -12,29 +12,27 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div id="sidebar">
-    <div id="logo">
-      <!-- an image would go here -->
-    </div>
+<body class="blue lighten-5">
 
-    <nav>
-       <ul class="right hide-on-med-and-down">
-      <li id="category">Factr</li>
-      <li id="list-item"><%= link_to "Home", '/' %></li>
-
+    <nav class="blue darken-1">
+    <div class="nav-wrapper">
+      <a href='/' class="brand-logo">Trivial</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <% if !current_user %>
         <li><%= link_to 'Login', '/login' %></li>
-        <li><%= link_to 'Register', '/signup' %></li>
+        <li><%= link_to 'Register', '/users/new' %></li>
       <% else %>
+        <li>Hello <%= current_user.username%>!
         <li><%= link_to "Logout", '/logout' %></li>
         <li><%= link_to "Add a fact!", '/facts/new' %></li>
       <% end %>
 
     </ul>
   </nav>
+  <div class="container">
 <%= yield %>
-
+    </div>
+  </div>
 </body>
 </html>

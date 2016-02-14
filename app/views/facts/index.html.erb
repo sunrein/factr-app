@@ -1,6 +1,13 @@
 <% @facts.each do |fact| %>
   <div class="fact_wrapper">
-    <h2 class="fact-body"> <%= fact.body %>
-      <p class="date"> <%= fact.created_at.strftime("%B, %d, %Y") %> </p>
+    <div class="card-panel hoverable white">
+    <h3 class="fact-body blue-text text-darken-2"> <%= fact.body %></h3>
+      <p class="date">Posted on <%= fact.created_at.strftime("%B, %d, %Y") %> by <%=fact.user.username%> </p>
+
+      <% if current_user && current_user.id == fact.user_id %>
+      <h6 class="waves-effect waves-blue btn-flat"><a href='/login'>Edit</a></h6>
+      <h6 class="waves-effect waves-blue btn-flat"><a href='/login'>Delete</a></h6>
+      <% end %>
     </div>
-<% end %>
+  </div>
+  <% end %>

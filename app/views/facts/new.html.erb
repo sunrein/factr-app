@@ -1,13 +1,14 @@
 <h1> New Fact </h1>
 
-<%= form_for :fact, url: facts_path do |f| %>
+<div class="row">
+<%= form_for :fact, :html => { :class => "cols12" }, url: facts_path do |f| %>
+
+  <div class="row">
+    <%= f.label :drop_some_knowledge, :html => { :class => "input-field col s8" }%><br>
+    <%= f.text_area :body, :html => { :id => "textarea1", :class => "materialize-textarea" } %>
+  </div>
 
   <p>
-    <%= f.label :drop_some_knowledge%><br>
-    <%= f.text_area :body %>
-  </p>
-
-  <p>
-    <%= f.submit "Share" %>
+    <p class="waves-effect waves-blue btn-flat"><%= f.submit "Share" %>
   </p>
 <% end %>

@@ -1,3 +1,4 @@
+
 <% @facts.each do |fact| %>
   <div class="fact_wrapper">
     <div class="card-panel hoverable white">
@@ -11,3 +12,5 @@
     </div>
   </div>
   <% end %>
+  <%= paginate @facts %>
+  <%= page_entries_info @facts %>

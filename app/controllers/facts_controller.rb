@@ -1,7 +1,8 @@
 class FactsController < ApplicationController
 
     def index
-      @facts = Fact.all.order('created_at DESC')
+      # @facts = Fact.all.order('created_at DESC')
+      @facts = Fact.page(params[:page]).per(10).order('created_at DESC')
     end
 
     def new

@@ -7,7 +7,7 @@
 
       <% if current_user && current_user.id == fact.user_id %>
       <h6 class="waves-effect waves-blue btn-flat"><a href='/facts/<%=fact.id%>/edit'>Edit</a></h6>
-      <h6 class="waves-effect waves-blue btn-flat"><a href='/login'>Delete</a></h6>
+      <%= link_to 'Delete', fact, method: :delete, class: "blue-text waves-effect waves-blue btn-flat" %>
       <% end %>
     </div>
   </div>

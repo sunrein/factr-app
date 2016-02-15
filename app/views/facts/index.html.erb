@@ -1,0 +1,16 @@
+
+<% @facts.each do |fact| %>
+  <div class="fact_wrapper">
+    <div class="card-panel hoverable white">
+    <h3 class="fact-body blue-text text-darken-2"> <%= fact.body %></h3>
+      <p class="date">Posted on <%= fact.created_at.strftime("%B, %d, %Y") %> by <%=fact.user.username%> </p>
+
+      <% if current_user && current_user.id == fact.user_id %>
+      <h6 class="waves-effect waves-blue btn-flat"><a href='/facts/<%=fact.id%>/edit'>Edit</a></h6>
+      <%= link_to 'Delete', fact, method: :delete, class: "blue-text waves-effect waves-blue btn-flat" %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <%= paginate @facts %>
+  <%= page_entries_info @facts %>
